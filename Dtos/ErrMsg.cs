@@ -2,7 +2,6 @@ namespace ArticoliWebService.Dtos
 {
     public class ErrMsg
     {
-
         public ErrMsg(string messaggio, string errore)
         {
             this.messaggio = messaggio;
@@ -11,9 +10,6 @@ namespace ArticoliWebService.Dtos
 
         public string messaggio { get; set; }
         public string errore { get; set; }
-        
-        
-        
         
     }
 }

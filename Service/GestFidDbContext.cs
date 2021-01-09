@@ -19,7 +19,7 @@ namespace ArticoliWebService.Services
         {
             
 
-            //Relazione one to many (uno a molti) fra articoli e barcode
+            //Relazione one to many (uno a molti) fra clienti e transazioni
             modelBuilder.Entity<Transazioni>()
                 .HasOne<Clienti>(s => s.cliente) //ad un cliente...
                 .WithMany(g => g.transaz) //corrispondono molte transazioni
