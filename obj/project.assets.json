@@ -5727,11 +5727,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "h:\\Csharp\\udemy\\gestfid\\GestFidApi\\GestFidApi.csproj",
+      "projectUniqueName": "H:\\CSharp\\Udemy\\gestfid\\GestFidApi\\GestFidApi.csproj",
       "projectName": "GestFidApi",
-      "projectPath": "h:\\Csharp\\udemy\\gestfid\\GestFidApi\\GestFidApi.csproj",
+      "projectPath": "H:\\CSharp\\Udemy\\gestfid\\GestFidApi\\GestFidApi.csproj",
       "packagesPath": "C:\\Users\\Nicola\\.nuget\\packages\\",
-      "outputPath": "h:\\Csharp\\udemy\\gestfid\\GestFidApi\\obj\\",
+      "outputPath": "H:\\CSharp\\Udemy\\gestfid\\GestFidApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5790,7 +5790,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

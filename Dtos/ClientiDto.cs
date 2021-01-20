@@ -10,6 +10,8 @@ namespace GestFidApi.Dtos
         public string Nominativo { get; set; }
         public string Comune { get; set; }
         public Int16? Stato { get; set; }
+        public string IdAvatar { get; set; }
+        
         public virtual ICollection<TransazDto> Transazioni { get; set; }
     }
 }

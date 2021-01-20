@@ -50,6 +50,8 @@ namespace GestFidApi.Controllers
         {
             //var articoliDto = new List<ArticoliDto>();
 
+            //await Task.Delay(2000); //TODO Da eliminare
+
             var clienti = await this.clientiRepository.SelCliByCode(CodFid);
             
             if (clienti is null)

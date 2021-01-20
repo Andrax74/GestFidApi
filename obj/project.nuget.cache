@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ERfR2nveuDYpNsfAsgaMVGK6/gf2574UImrdFCw0BPWUhhad3rcCqdYS4zy4z7ueo77ROgtiWbzwBfi6gmUD/Q==",
+  "dgSpecHash": "Sij2x+jBX6pTLJcBl8Bbhu6rf+EONa2qdXt9J59uD9MIgHz4mJwC7b9rmrag/TSMVnF3n90bMnPzcZVUlrWsTA==",
   "success": true,
-  "projectFilePath": "H:\\Csharp\\udemy\\gestfid\\GestFidApi\\GestFidApi.csproj",
+  "projectFilePath": "H:\\CSharp\\Udemy\\gestfid\\GestFidApi\\GestFidApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicola\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
     "C:\\Users\\Nicola\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",

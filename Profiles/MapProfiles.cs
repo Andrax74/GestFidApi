@@ -18,6 +18,11 @@ namespace GestFidApi.Profiles
             (
                 dest => dest.Transazioni,
                 opt => opt.MapFrom(src => src.transaz)
+            )
+            .ForMember
+            (
+                dest => dest.IdAvatar,
+                opt => opt.MapFrom(src => src.IdAvatar.Trim())
             );
 
             CreateMap<Transazioni, TransazDto>();
