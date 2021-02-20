@@ -43,6 +43,16 @@ namespace GestFidApi.Controllers
             return Ok(mapper.Map<ICollection<ClientiDto>>(clienti));
         }
 
+        [HttpGet("exists/{CodFid}")]
+        public ActionResult<bool> ClienteExists(string CodFid)
+        {
+            //var articoliDto = new List<ArticoliDto>();
+
+            bool value = this.clientiRepository.ClienteExists(CodFid);
+
+            return Ok(value);
+        }
+
         [HttpGet("cerca/codice/{CodFid}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ClientiDto))]
@@ -52,14 +62,16 @@ namespace GestFidApi.Controllers
 
             //await Task.Delay(2000); //TODO Da eliminare
 
-            var clienti = await this.clientiRepository.SelCliByCode(CodFid);
+            Console.WriteLine($"{DateTime.Now} Cerchiamo il cliente con codice {CodFid}");
+
+            var cliente = await this.clientiRepository.SelCliByCode(CodFid);
             
-            if (clienti is null)
+            if (cliente is null)
             {
                 return NotFound(new ErrMsg(string.Format($"Non è stato trovato cliente con codice {CodFid}"),"404"));
             }
 
-            return Ok(mapper.Map<ClientiDto>(clienti));
+            return Ok(mapper.Map<ClientiDto>(cliente));
         }
 
         [HttpGet("cerca/nome/{Nome}")]
@@ -68,6 +80,8 @@ namespace GestFidApi.Controllers
         public async Task<ActionResult<IEnumerable<ClientiDto>>> GetClienti(string Nome)
         {
             //var articoliDto = new List<ArticoliDto>();
+
+            Console.WriteLine($"{DateTime.Now} Cerchiamo tutti i clienti");
 
             var clienti = await this.clientiRepository.SelCliByName(Nome);
             
@@ -84,7 +98,7 @@ namespace GestFidApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult SaveArticoli([FromBody] Clienti cliente)
+        public IActionResult SaveClienti([FromBody] Clienti cliente)
         {
             bool IsOk = false;
 
@@ -138,8 +152,10 @@ namespace GestFidApi.Controllers
         [ProducesResponseType(400, Type = typeof(ErrMsg))]
         [ProducesResponseType(422, Type = typeof(ErrMsg))]
         [ProducesResponseType(500, Type = typeof(ErrMsg))]
-        public IActionResult DeleteArticoli(string CodFid)
+        public IActionResult DeleteClienti(string CodFid)
         {
+            Console.WriteLine($"Eliminazione cliente {CodFid}");
+
             if (CodFid == "")
             {
                 return BadRequest(new ErrMsg($"E' necessario inserire il codice del cliente da eliminare!",
@@ -153,6 +169,13 @@ namespace GestFidApi.Controllers
             {
                 return StatusCode(422, new ErrMsg($"Cliente {CodFid} NON presente in anagrafica! Impossibile Eliminare!",
                     "422"));
+            }
+
+            //verifichiamo che il cliente non abbia movimentazioni
+            if (clientiRepository.GetNumTransaz(CodFid) > 0)
+            {
+                return StatusCode(500, new ErrMsg($"Impossibile eliminare un cliente con movimentazione di bollini!",
+                    "500"));
             }
 
              //verifichiamo che i dati siano stati regolarmente eliminati dal database

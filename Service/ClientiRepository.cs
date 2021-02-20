@@ -87,5 +87,14 @@ namespace GestFidApi.Service
                 return false;
             }
         }
+
+        public int GetNumTransaz(string Code)
+        {
+            return this.gestFidDbContext.Clienti
+                .AsNoTracking()
+                .Include(a => a.transaz)
+                .Where(a => a.CodFid.Equals(Code))
+                .FirstOrDefault().transaz.Count;
+        }
     }
 }

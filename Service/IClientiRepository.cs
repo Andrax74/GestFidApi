@@ -14,5 +14,6 @@ namespace GestFidApi.Service
         bool UpdCliente(Clienti cliente);
         bool DelCliente(Clienti cliente);
         bool ClienteExists(string Code);
+        int GetNumTransaz(string Code);
     }
 }
